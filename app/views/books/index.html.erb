@@ -31,97 +31,27 @@
     </tr>
     </thread>
     <tbody>
+
+    <%= @books.each do |book|%>
+
     <tr>
-      <td>リーダブルコード</td>
-      <td>より良いコードを書くためのシンプルで実践的なテクニック</td>
+      <td><%=book.title %></td>
+      <td><%=book.body %></td>
       <td>
-        <a class="show_77540" href="/books/77540">Show</a>
+        <a>
+        <%=link_to'Show',books_path %>
+        </a>
       </td>
       <td>
-        <a class="edit_77540" href="/books/77540/edit">Edit</a>
+        <a>
+        <%=link_to'Edit',books_path %>
+        </a>
       </td>
       <td>
-        <a data-confirm="Are you sure?" class="destroy_77540" rel="nofollow" data-method="delete" href="/books/77540">Destroy</a>
+        <a data-confirm="Are you sure?" class="destroy_01" rel="nofollow" data-method="delete" href="/books/01">Destroy</a>
       </td>
-  </tr>
-  <tr>
-      <td>トラブル知らずのシステム設計</td>
-      <td>システム設計の要点を図解で説明してくれます</td>
-      <td>
-        <a class="show_77541" href="/books/77541">Show</a>
-      </td>
-      <td>
-        <a class="edit_77541" href="/books/77541/edit">Edit</a>
-      </td>
-      <td>
-        <a data-confirm="Are you sure?" class="destroy_77541" rel="nofollow" data-method="delete" href="/books/77541">Destroy</a>
-      </td>
-  </tr>
-  <tr>
-      <td>たのしいRuby</td>
-      <td>Rubyの入門におすすめです</td>
-      <td>
-        <a class="show_77542" href="/books/77542">Show</a>
-      </td>
-      <td>
-        <a class="edit_77542" href="/books/77542/edit">Edit</a>
-      </td>
-      <td>
-        <a data-confirm="Are you sure?" class="destroy_77542" rel="nofollow" data-method="delete" href="/books/77542">Destroy</a>
-      </td>
-  </tr>
-  <tr>
-      <td>入門Git</td>
-      <td>gitについての基本操作から内部構造まで解説してくれます</td>
-      <td>
-        <a class="show_77543" href="/books/77543">Show</a>
-      </td>
-      <td>
-        <a class="edit_77543" href="/books/77543/edit">Edit</a>
-      </td>
-      <td>
-        <a data-confirm="Are you sure?" class="destroy_77543" rel="nofollow" data-method="delete" href="/books/77543">Destroy</a>
-      </td>
-  </tr>
-  <tr>
-      <td>アルゴリズム図鑑</td>
-      <td>アルゴリズムについてカラーイラストでしっかり解説してくれます</td>
-      <td>
-        <a class="show_77544" href="/books/77544">Show</a>
-      </td>
-      <td>
-        <a class="edit_77544" href="/books/77544/edit">Edit</a>
-      </td>
-      <td>
-        <a data-confirm="Are you sure?" class="destroy_77544" rel="nofollow" data-method="delete" href="/books/77544">Destroy</a>
-      </td>
-  </tr>
-  <tr>
-      <td>達人プログラマー</td>
-      <td>プログラマ入門者は必読！</td>
-      <td>
-        <a class="show_77545" href="/books/77545">Show</a>
-      </td>
-      <td>
-        <a class="edit_77545" href="/books/77545/edit">Edit</a>
-      </td>
-      <td>
-        <a data-confirm="Are you sure?" class="destroy_77545" rel="nofollow" data-method="delete" href="/books/77545">Destroy</a>
-      </td>
-  </tr>
-  <tr>
-      <td>データベース実践入門</td>
-      <td>効率的なSQL文を教えてくれます</td>
-      <td>
-        <a class="show_77546" href="/books/77546">Show</a>
-      </td>
-      <td>
-        <a class="edit_77546" href="/books/77546/edit">Edit</a>
-      </td>
-      <td>
-        <a data-confirm="Are you sure?" class="destroy_77546" rel="nofollow" data-method="delete" href="/books/77546">Destroy</a>
-      </td>
-  </tr>
+    </tr>
+    <% end %>
   </tbody>
 </table>
 
@@ -130,18 +60,19 @@
     <input name="utf8" type="hidden" value="✔">
     <input type="hidden" name="authenticity_token" value="zLEJiT2ormS+SlFxxUxuzx8TZblxEDQfCjRQxzcGW2AyL8GFD0pPJUwiIZjrck9Dtlsjcww/JnR3tZTbGROGqQ==">
 
-
+  <%= form_with model: Book.new do |f| %>
     <div class="field">
-      <label for="book_title">Title</label>
-      <input class="book_title"type="text" name="book[title]" id="book_title">
+    <h4>Title</h4>
+    <%= f.text_field :title %>
     </div>
     <div class="field">
-      <label for="book_title">Title</label>
-      <textarea class="book_body" name="book[body]" id="book_body"></textarea>
+    <h4>Body</h4>
+    <%= f.text_area :body%>
     </div>
     <div class="actions">
-      <input type="submit" name="commit" value="Create Book" data-disable-with="Create Book">
+    <%= f.submit 'Create Book' %>
     </div>
+  <% end %>
   </form>
 </body>
 </html>

@@ -27,8 +27,8 @@
   <p>
     <strong>Body:</strong><%=@book.body %>
   </p>
-  <a class="edit_77606" href="/books/77606/edit">Edit</a>
-  ' | '
-  <a class="back" href="/books">Back</a>
+  <%= link_to'Edit',books_path %>
+  |
+  <%= link_to'Back',books_path %>
 </body>
 </html>
