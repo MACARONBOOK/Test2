@@ -1,2 +1,47 @@
-<h1>Books#edit</h1>
-<p>Find me in app/views/books/edit.html.erb</p>
+<html>
+<head>
+  <style type="text/css">
+    .turbolinks-progress-bar {
+    position: fixed;
+    display: block;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: #0076ff;
+    z-index: 9999;
+    transition: width 300ms ease-out, opacity 150ms 150ms ease-in;
+    transform: translate3d(0, 0, 0);
+}
+
+
+  </style>
+  <link rel="stylesheet" media="all" href="/assets/application-d12397cbc3a266ce5a99f7b588223090c55ca04a439953bb5f9304395de93fc3.css" data-turbolinks-track="reload">
+  <script src="/assets/application-114264dd93c8ff30e4335b71eed7949d66c4e7a8eb62e2de6284c046fe07104b.js" data-turbolinks-track="reload"></script>
+  <title>WebCampBackendNew</title>
+  <meta name="csrf-param" content="authenticity_token">
+  <meta name="csrf-param" content="iR7OK5HtV36ECY5Gppk84fnUcDN27nmkmrRvTdbru8eMpbD+hGlEtpe1o7+uGfNIvA/di4NPml1OyLA8cD5vOg==">
+</head>
+<body>
+  <h1>Editing Book</h1>
+  <form class="edit_book" id="edit_book_77593" action="/books/77593" accept-charset="UTF-8" method="post">
+    <input name="utf8" type="hidden" value="✔">
+    <input type="hidden" name="_method" value="patch">
+    <input type="hidden" name="authenticity_token" value="QWzQR2IXwzk2Q2VV3r+HMUUoZc8aKquXzHCv1roTz5Zv0tR8Ky+ZNc7pfVPcfRO4d0s6HLwH166k0K6OHdCl7g==">
+    <div class="field">
+      <label for="book_title">Title</label>
+      <input class="book_title"type="text" name="book[title]" id="book_title">
+    </div>
+    <div class="field">
+      <label for="book_title">Title</label>
+      <textarea class="book_body" name="book[body]" id="book_body"></textarea>
+    </div>
+    <div class="actions">
+      <input type="submit" name="commit" value="Update Book" data-disable-with="Update Book">
+    </div>
+  </form>
+  <a class="show_77593" href="/books/77593">Show</a>
+  " | "
+  <a class="back" href="/books">Back</a>
+
+</body>
+</html>

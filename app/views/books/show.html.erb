@@ -1,2 +1,34 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<html>
+<head>
+  <style type="text/css">
+    .turbolinks-progress-bar {
+    position: fixed;
+    display: block;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: #0076ff;
+    z-index: 9999;
+    transition: width 300ms ease-out, opacity 150ms 150ms ease-in;
+    transform: translate3d(0, 0, 0);
+}
+ </style>
+  <link rel="stylesheet" media="all" href="/assets/application-d12397cbc3a266ce5a99f7b588223090c55ca04a439953bb5f9304395de93fc3.css" data-turbolinks-track="reload">
+  <script src="/assets/application-114264dd93c8ff30e4335b71eed7949d66c4e7a8eb62e2de6284c046fe07104b.js" data-turbolinks-track="reload"></script>
+  <title>WebCampBackendNew</title>
+  <meta name="csrf-param" content="authenticity_token">
+  <meta name="csrf-param" content="aJ2opnLiQPs34c9zz48/Cml2r6kIE4xOAjubrBpsPGJtJtZzZ2ZTMyRd4orHD/CjLK0CEf2yb7fWR0TdvLnonw==">
+</head>
+<body>
+  <p id="notice"></p>
+  <p>
+    <strong>Title:</strong><%=@book.title %>
+  </p>
+  <p>
+    <strong>Body:</strong><%=@book.body %>
+  </p>
+  <a class="edit_77606" href="/books/77606/edit">Edit</a>
+  " | "
+  <a class="back" href="/books">Back</a>
+</body>
+</html>
