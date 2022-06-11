@@ -61,6 +61,7 @@ a {
 a:visited {
     color: #666;
 }
+
 a:-webkit-any-link {
     color: -webkit-link;
     cursor: pointer;
