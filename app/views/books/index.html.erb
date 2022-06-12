@@ -39,12 +39,12 @@
       <td><%=book.body %></td>
       <td>
         <a>
-        <%=link_to'Show',books_path %>
+        <%=link_to'Show','/books/:id(1)' %>
         </a>
       </td>
       <td>
         <a>
-        <%=link_to'Edit',books_path %>
+        <%=link_to'Edit','/books/:id(1)/edit' %>
         </a>
       </td>
       <td>
@@ -60,7 +60,11 @@
     <input name="utf8" type="hidden" value="✔">
     <input type="hidden" name="authenticity_token" value="zLEJiT2ormS+SlFxxUxuzx8TZblxEDQfCjRQxzcGW2AyL8GFD0pPJUwiIZjrck9Dtlsjcww/JnR3tZTbGROGqQ==">
 
+
+
+
   <%= form_with model: Book.new do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
     <div class="field">
     <h4>Title</h4>
     <%= f.text_field :title %>
