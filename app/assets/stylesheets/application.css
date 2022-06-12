@@ -144,21 +144,9 @@ html {
     display: block;
 }
 
-input[type="text" i] {
-    padding: 1px 2px;
-}
 
 input {
     writing-mode: horizontal-tb !important;
-    font-style: ;
-    font-variant-ligatures: ;
-    font-variant-caps: ;
-    font-variant-numeric: ;
-    font-variant-east-asian: ;
-    font-weight: ;
-    font-stretch: ;
-    font-size: ;
-    font-family: ;
     text-rendering: auto;
     color: fieldtext;
     letter-spacing: normal;
@@ -182,14 +170,6 @@ input {
 }
 textarea {
     writing-mode: horizontal-tb !important;
-    font-style: ;
-    font-variant-ligatures: ;
-    font-variant-caps: ;
-    font-variant-numeric: ;
-    font-variant-east-asian: ;
-    font-weight: ;
-    font-stretch: ;
-    font-size: ;
     font-family: monospace;
     text-rendering: auto;
     color: fieldtext;

@@ -1,26 +1,16 @@
 <html>
-<head>
-  <style type="text/css">
-    .turbolinks-progress-bar {
-    position: fixed;
-    display: block;
-    top: 0;
-    left: 0;
-    height: 3px;
-    background: #0076ff;
-    z-index: 9999;
-    transition: width 300ms ease-out, opacity 150ms 150ms ease-in;
-    transform: translate3d(0, 0, 0);
-}
-  </style>
-  <link rel="stylesheet" media="all" href="/assets/application-d12397cbc3a266ce5a99f7b588223090c55ca04a439953bb5f9304395de93fc3.css" data-turbolinks-track="reload">
-  <script src="/assets/application-114264dd93c8ff30e4335b71eed7949d66c4e7a8eb62e2de6284c046fe07104b.js" data-turbolinks-track="reload"></script>
-  <title>WebCampBackendNew</title>
-  <meta name="csrf-param" content="authenticity_token">
-  <meta name="csrf-param" content="BKCBVdT3VEBpEaUU6ac4V8TqvALfEsI/fLomEmv/NAoBG/+AwXNHiHqtiO3hJ/f+gTERuiqzIcaoxvljzSrg9w==">
-</head>
-<body>
-  <p id="notice"></p>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- CSSファイルの読み込み -->
+    <link rel="stylesheet" href="application.css" />
+   <title>WebCampBackendNew</title>
+  </head>
+  <body>
+  <% if flash[:notice] %>
+  <p id="notice">
+    <%=flash[:notice] %></p>
+  <% end %>
   <h1>Books</h1>
 
   <table>
@@ -28,43 +18,44 @@
     <tr>
       <th>Title</th>
       <th>Body</th>
+      <th colospan="3">
     </tr>
     </thread>
+     <%= @books.each do |book|%>
     <tbody>
-
-    <%= @books.each do |book|%>
-
     <tr>
-      <td><%=book.title %></td>
-      <td><%=book.body %></td>
+      <td><%=book.title(1) %></td>
+      <td><%=book.body(1) %></td>
       <td>
         <a>
-        <%=link_to'Show','/books/:id(1)' %>
+        <%=link_to'Show', book_path(1) %>
         </a>
       </td>
       <td>
         <a>
-        <%=link_to'Edit','/books/:id(1)/edit' %>
+        <%=link_to'Edit', edit_book_path(1) %>
         </a>
       </td>
       <td>
-        <a data-confirm="Are you sure?" class="destroy_01" rel="nofollow" data-method="delete" href="/books/01">Destroy</a>
+        <%=link_to'Destroy',book_path(book.id), method :delete, "data-confirm"=> "Are you sure?"} %>
       </td>
     </tr>
     <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
 
   <h2>New Book</h2>
-  <form class="new_book" id="new_book" action="/books" accept-charset="UTF-8" method="post">
+    <%= render 'layouts/error_messages', model: f.object %>
+    <div id="error_explanation">
+    </div>
+
+   <form class="new_book" id="new_book" action="/books" accept-charset="UTF-8" method="post">
     <input name="utf8" type="hidden" value="✔">
     <input type="hidden" name="authenticity_token" value="zLEJiT2ormS+SlFxxUxuzx8TZblxEDQfCjRQxzcGW2AyL8GFD0pPJUwiIZjrck9Dtlsjcww/JnR3tZTbGROGqQ==">
 
 
-
-
   <%= form_with model: Book.new do |f| %>
-  <%= render 'layouts/error_messages', model: f.object %>
+
     <div class="field">
     <h4>Title</h4>
     <%= f.text_field :title %>
@@ -78,5 +69,6 @@
     </div>
   <% end %>
   </form>
-</body>
+
+  </body>
 </html>
