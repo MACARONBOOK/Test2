@@ -9,14 +9,17 @@
   <meta name="csrf-param" content="aJ2opnLiQPs34c9zz48/Cml2r6kIE4xOAjubrBpsPGJtJtZzZ2ZTMyRd4orHD/CjLK0CEf2yb7fWR0TdvLnonw==">
 </head>
 <body>
-  <p id="notice">Book was successfully updated.</p>
+  <% if flash[:notice] %>
+  <p id="notice">
+    <%=flash[:notice] %></p>
+  <% end %>
   <p>
     <strong>Title:</strong><%=@book.title %>
   </p>
   <p>
     <strong>Body:</strong><%=@book.body %>
   </p>
-  
+
   <a><%= link_to'Edit',edit_book_path(book.id) %></a>
   <a>|</a>
   <a><%= link_to'Back',books_path %></a>

@@ -1,12 +1,7 @@
-<html>
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <!-- CSSファイルの読み込み -->
-    <link rel="stylesheet" href="application.css" />
-   <title>WebCampBackendNew</title>
-  </head>
-  <body>
+<% content_for :special_script do %>
+  <script type= "text/javascript">
+<% end %>
+
   <% if flash[:notice] %>
   <p id="notice">
     <%=flash[:notice] %></p>
@@ -14,13 +9,13 @@
   <h1>Books</h1>
 
   <table>
-    <thread>
+    <thead>
     <tr>
       <th>Title</th>
       <th>Body</th>
       <th colospan="3">
     </tr>
-    </thread>
+    </thead>
      <%= @books.each do |book|%>
     <tbody>
     <tr>
@@ -69,6 +64,3 @@
     </div>
   <% end %>
   </form>
-
-  </body>
-</html>
