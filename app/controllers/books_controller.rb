@@ -12,7 +12,7 @@ class BooksController < ApplicationController
       redirect_to book_path(@book.id)
     else
       @books= Book.all
-      render :new
+      render ("books/index")
     end
   end
 
@@ -29,12 +29,12 @@ class BooksController < ApplicationController
   end
 
   def update
-    book =Book.find(params[:id])
-    if book.id == current_book.id
-    book.update(book_params)
-    flash[:notice]= Book was succesfully updated.
-    redirect_to book_path(book.id)
-    end
+    @book =Book.find(params[:id])
+
+    @book.update(book_params)
+    flash[:notice]= "Book was succesfully updated."
+    redirect_to book_path(@book.id)
+
   end
 
   def destroy

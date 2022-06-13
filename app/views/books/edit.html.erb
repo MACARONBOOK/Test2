@@ -5,24 +5,21 @@
   <% end %>
 
   <h1>Editing Book</h1>
-  <form class="edit_book" id="edit_book_77593" action="/books/77593" accept-charset="UTF-8" method="post">
-    <input name="utf8" type="hidden" value="✔">
-    <input type="hidden" name="_method" value="patch">
-    <input type="hidden" name="authenticity_token" value="QWzQR2IXwzk2Q2VV3r+HMUUoZc8aKquXzHCv1roTz5Zv0tR8Ky+ZNc7pfVPcfRO4d0s6HLwH166k0K6OHdCl7g==">
+
     <%= form_with model: @book do |f|%>
     <div class="field">
       <label for="book_title">Title</label>
-      <%=f.text.field :title %>
+      <%=f.text_field :title %>
     </div>
     <div class="field">
       <label for="book_body">Title</label>
-      <%=f.text_area *body %>
+      <%=f.text_area :body %>
     </div>
     <div class="actions">
       <%=f.submit 'Update Book'%>
     </div>
     <% end %>
   </form>
-  <a ><%=link_to"Show",book_path(book.id) %></a>
+  <%=link_to"Show",book_path(@book.id) %>
   <a> | </a>
-  <a><%=link_to"Back",books_path,"/books" %></a>
+  <%=link_to"Back",books_path %>

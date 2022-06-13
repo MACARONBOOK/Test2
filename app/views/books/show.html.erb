@@ -1,14 +1,4 @@
-<html>
-<head>
-  <style type="text/css">
- </style>
-  <link rel="stylesheet" media="all" href="/assets/application-d12397cbc3a266ce5a99f7b588223090c55ca04a439953bb5f9304395de93fc3.css" data-turbolinks-track="reload">
-  <script src="/assets/application-114264dd93c8ff30e4335b71eed7949d66c4e7a8eb62e2de6284c046fe07104b.js" data-turbolinks-track="reload"></script>
-  <title>WebCampBackendNew</title>
-  <meta name="csrf-param" content="authenticity_token">
-  <meta name="csrf-param" content="aJ2opnLiQPs34c9zz48/Cml2r6kIE4xOAjubrBpsPGJtJtZzZ2ZTMyRd4orHD/CjLK0CEf2yb7fWR0TdvLnonw==">
-</head>
-<body>
+
   <% if flash[:notice] %>
   <p id="notice">
     <%=flash[:notice] %></p>
@@ -20,9 +10,7 @@
     <strong>Body:</strong><%=@book.body %>
   </p>
 
-  <a><%= link_to'Edit',edit_book_path(book.id) %></a>
+  <%= link_to'Edit',edit_book_path(@book.id) %>
   <a>|</a>
-  <a><%= link_to'Back',books_path %></a>
-  <% end %>
-</body>
-</html>
+  <%= link_to'Back',books_path %>
+

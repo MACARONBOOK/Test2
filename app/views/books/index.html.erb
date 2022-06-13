@@ -38,7 +38,7 @@
   <h2>New Book</h2>
 
   <%= form_with model: @book, url: '/books', method: :post do |f| %>
-    <% if book.errors.any? %>
+    <% if @books.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
 
@@ -62,4 +62,4 @@
     <div class="actions">
     <%= f.submit 'Create Book' %>
     </div>
-  <% end %>
+
