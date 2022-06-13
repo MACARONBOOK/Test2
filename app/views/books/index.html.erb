@@ -10,8 +10,8 @@
   <table>
     <thead>
     <tr>
-      <th>Title</th>
-      <th>Body</th>
+      <th>本のタイトル</th>
+      <th>感想</th>
       <th colospan="3">
     </tr>
     </thead>
@@ -46,10 +46,6 @@
         <% book.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
-      </ul>
-    </div>
-    <% end %>
-
 
     <div class="field">
     <h4>Title</h4>
@@ -63,3 +59,11 @@
     <%= f.submit 'Create Book' %>
     </div>
 
+
+      </ul>
+    </div>
+    <% end %>
+
+
+
+  <% end %>

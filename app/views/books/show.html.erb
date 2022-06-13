@@ -4,13 +4,12 @@
     <%=flash[:notice] %></p>
   <% end %>
   <p>
-    <strong>Title:</strong><%=@book.title %>
+    <strong>本のタイトル:</strong><%=@book.title %>
   </p>
   <p>
-    <strong>Body:</strong><%=@book.body %>
+    <strong>感想:</strong><%=@book.body %>
   </p>
 
-  <%= link_to'Edit',edit_book_path(@book.id) %>
-  <a>|</a>
+  <%= link_to'Edit',edit_book_path(@book.id) %> |
   <%= link_to'Back',books_path %>
 

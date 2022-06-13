@@ -8,18 +8,18 @@
 
     <%= form_with model: @book do |f|%>
     <div class="field">
-      <label for="book_title">Title</label>
+      <label for="book_title">本のタイトル</label>
       <%=f.text_field :title %>
     </div>
     <div class="field">
-      <label for="book_body">Title</label>
+      <label for="book_body">感想</label>
       <%=f.text_area :body %>
     </div>
     <div class="actions">
       <%=f.submit 'Update Book'%>
     </div>
+
+    </form>
+    <%=link_to"Show",book_path(@book.id) %> |
+    <%=link_to"Back",books_path %>
     <% end %>
-  </form>
-  <%=link_to"Show",book_path(@book.id) %>
-  <a> | </a>
-  <%=link_to"Back",books_path %>
