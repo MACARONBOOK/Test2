@@ -5,7 +5,20 @@
   <% end %>
 
   <h1>Editing Book</h1>
+   <% if @book.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@book.errors.count, "error") %> prohibited this book from being saved:</h2>
 
+      <ul>
+        <% @book.errors.full_messages.each do |message| %>
+          <div class="form-error">
+            <%= message %>
+          </div>
+        <% end %>
+
+      </ul>
+    </div>
+    <% end %>
     <%= form_with model: @book do |f|%>
     <div class="field">
       <label for="book_title">本のタイトル</label>
