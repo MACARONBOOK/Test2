@@ -22,3 +22,4 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+GitHubの機能を試すためのリポジトリです。メモが追加されるか。
