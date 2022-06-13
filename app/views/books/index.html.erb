@@ -1,11 +1,10 @@
-<% content_for :special_script do %>
-  <script type= "text/javascript">
-<% end %>
+
 
   <% if flash[:notice] %>
   <p id="notice">
     <%=flash[:notice] %></p>
   <% end %>
+
   <h1>Books</h1>
 
   <table>
@@ -16,40 +15,41 @@
       <th colospan="3">
     </tr>
     </thead>
-     <%= @books.each do |book|%>
+
     <tbody>
-    <tr>
-      <td><%=book.title(1) %></td>
-      <td><%=book.body(1) %></td>
-      <td>
-        <a>
-        <%=link_to'Show', book_path(1) %>
-        </a>
-      </td>
-      <td>
-        <a>
-        <%=link_to'Edit', edit_book_path(1) %>
-        </a>
-      </td>
-      <td>
-        <%=link_to'Destroy',book_path(book.id), method :delete, "data-confirm"=> "Are you sure?"} %>
-      </td>
-    </tr>
-    <% end %>
+       <%= @books.each do |book|%>
+      <tr>
+        <td><%=book.title %></td>
+        <td><%=book.body %></td>
+        <td>
+          <%=link_to"Show", book_path(book) %>
+        </td>
+        <td>
+          <%=link_to"Edit", edit_book_path(book) %>
+        </td>
+        <td>
+          <%=link_to"Destroy", "/books/#{book.id}", method: :delete, data:{confirm: "Are you sure?"} %>
+        </td>
+      </tr>
+      <% end %>
     </tbody>
   </table>
 
   <h2>New Book</h2>
-    <%= render 'layouts/error_messages', model: f.object %>
+
+  <%= form_with model: @book, url: '/books', method: :post do |f| %>
+    <% if book.errors.any? %>
     <div id="error_explanation">
+      <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
+
+      <ul>
+        <% book.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
     </div>
+    <% end %>
 
-   <form class="new_book" id="new_book" action="/books" accept-charset="UTF-8" method="post">
-    <input name="utf8" type="hidden" value="✔">
-    <input type="hidden" name="authenticity_token" value="zLEJiT2ormS+SlFxxUxuzx8TZblxEDQfCjRQxzcGW2AyL8GFD0pPJUwiIZjrck9Dtlsjcww/JnR3tZTbGROGqQ==">
-
-
-  <%= form_with model: Book.new do |f| %>
 
     <div class="field">
     <h4>Title</h4>
@@ -63,4 +63,3 @@
     <%= f.submit 'Create Book' %>
     </div>
   <% end %>
-  </form>
