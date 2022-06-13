@@ -21,5 +21,15 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
-GitHubの機能を試すためのリポジトリです。メモが追加されるか。
+-----------------------------------------------------------------------------------------------------------
+Checking point<br>
+
+20220613<br>
+Is this repository which commit to 'bookers-directory'? Can I add memo?<br>
+→Ok.<br>
+
+-----------------------------------------------------------------------------------------------------------
+
+App name: Bookers<br>
+Content: Free Bookshelf anyone can edit, collect and destroy.<br> 
+1Model, 4pages(related index, edit, show, top)<br>
